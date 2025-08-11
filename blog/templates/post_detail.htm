@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.title }}</title>
+</head>
+<body>
+    <h1>{{ object.title }}</h1>
+    <p>{{ object.content }}</p>
+    <a href="{% url 'post_update' object.pk %}">Редагувати</a>
+    <a href="{% url 'post_delete' object.pk %}">Видалити</a>
+    <a href="{% url 'post_list' %}">Назад до списку</a>
+</body>
+</html>

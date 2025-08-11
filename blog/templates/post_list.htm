@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список постів</title>
+</head>
+<body>
+    <h1>Список постів</h1>
+    <a href="{% url 'post_create' %}">Створити новий пост</a>
+    <ul>
+        {% for post in object_list %}
+            <li>
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+            </li>
+        {% empty %}
+            <li>Немає постів</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
