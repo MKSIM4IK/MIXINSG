@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if object %}Редагувати допис{% else %}Новий допис{% endif %}</title>
+</head>
+<body>
+    <h1>{% if object %}Редагувати допис{% else %}Новий допис{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if object %}Зберегти зміни{% else %}Додати допис{% endif %}</button>
+    </form>
+
+    <a href="{% url 'post_list' %}">Повернутись до списку дописів</a>
+</body>
+</html>

@@ -9,27 +9,27 @@ from .mixins import (
 
 class PostListView(TitleMixin, ContentMixin, ListView):
     model = Post
-    template_name = 'blog/post_list.html'
+    template_name = 'post_list.htm'
     context_object_name = 'posts'
 
 class PostDetailView(AuthorMixin, DateMixin, DetailView):
     model = Post
-    template_name = 'blog/post_detail.htm'
+    template_name = 'post_detail.htm'
     context_object_name = 'post'
 
 class PostCreateView(SummaryMixin, TagMixin, CreateView):
     model = Post
     fields = ['title', 'content']
-    template_name = 'blog/post_form.htm'
+    template_name = 'post_form.htm'
     success_url = reverse_lazy('post_list')
 
 class PostUpdateView(CategoryMixin, StatusMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
-    template_name = 'blog/post_form.htm'
+    template_name = 'post_form.htm'
     success_url = reverse_lazy('post_list')
 
 class PostDeleteView(CommentMixin, RatingMixin, DeleteView):
     model = Post
     success_url = reverse_lazy('post_list')
-    template_name = 'blog/post_confirm_delete.htm'
+    template_name = 'post_confirm_delete.htm'
